@@ -1,10 +1,16 @@
 // todo: constructor (default, primary, auxiliary)
 // todo: no static
-/*public*/ class Person {
+/*public*/ class Person(val name: String, age: Int) {
+
+  println(name)
 
 }
 
-val p: Person = new Person()
+// companion object
+object Person {
+}
+
+val p: Person = new Person("Ivan", 30)
 
 // static in Singleton
 //
@@ -12,6 +18,6 @@ object Intellias {
   def hire(p: Person) = ???
 }
 
-// companion object
-object Person {
-}
+Intellias.hire(p)
+
+

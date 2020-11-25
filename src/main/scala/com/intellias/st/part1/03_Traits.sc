@@ -22,7 +22,9 @@ trait C extends A {
 }
 
 // mix
-class D extends B with C
+class D extends B with C {
+  override def calculate(string: String): Int = super[B].calculate(string)
+}
 
 val d = new D
 
