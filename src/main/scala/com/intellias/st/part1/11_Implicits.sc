@@ -22,3 +22,4 @@ implicit class RichList(val javaList: java.util.List[_]) extends AnyVal {
 // 2. Nonexistent member is accessed
 // 3. Argument doesn't match the parameter
 
+// todo: try to implement trinary operator

@@ -2,9 +2,9 @@
 // immutable
 // mutable
 
-val list: Seq[Int] = 1 to 10
+val seq: Seq[Int] = 1 to 10
 
-val res: List[Int] = list
+val res: List[Int] = seq
   .filter(_ % 2 == 0)
   .map(Math.sqrt(_))
   .flatMap(x => List(x, x))

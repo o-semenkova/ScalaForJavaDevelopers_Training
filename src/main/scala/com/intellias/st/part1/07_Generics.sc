@@ -24,6 +24,8 @@ class B extends A
 
 class C extends B
 
+// todo: what we have in java?
+
 // in/co/contra + variance
 case class InvarianceWrapper[T](t: T)
 case class CoWrapper[+T](t: T)

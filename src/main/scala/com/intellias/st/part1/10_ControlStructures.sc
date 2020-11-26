@@ -8,6 +8,7 @@
 val a = 5
 val isEven = a % 2 == 0
 val isEvenHumanReadable = if (isEven) "Yes" else "No"
+// no trinary operator :(
 
 // for:
 for (i <- 1 until 10; j <- 1 to i) {
