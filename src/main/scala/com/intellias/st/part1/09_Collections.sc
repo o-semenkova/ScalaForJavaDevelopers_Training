@@ -4,12 +4,22 @@
 
 val seq: Seq[Int] = 1 to 10
 
-val res: List[Int] = seq
+seq(5)
+
+val res = seq
+  .view
   .filter(_ % 2 == 0)
   .map(Math.sqrt(_))
   .flatMap(x => List(x, x))
-  .map(_.toInt)
+//  .map(_.toInt)
   .toList
+
+val l: List[Option[Int]] = List(
+  Some(1), None, Some(2), Some(4), Some(9), None
+)
+
+l.filter(_.isDefined).map(_.get)
+l.flatten
 
 // List + Option
 val value = res ++ Option(5)
@@ -18,7 +28,8 @@ val value = Option(5) ++ res
 // Maps
 val iccMapping: Map[String, String] = Map(
   "UKR" -> "Ukraine",
-  "DEU" -> "Germany"
+  "DEU" -> "Germany",
+  ("key", "value")
 )
 val updatedIccMapping = iccMapping +
   ("POL" -> "Poland") +
@@ -28,16 +39,23 @@ updatedIccMapping("POL")
 updatedIccMapping.get("POL")
 updatedIccMapping.getOrElse("POL", "")
 
+//
+val s = Set[String]()
+
 // Tuples
+// Tuple3
 val tuple: (Int, String, Int) = (1, "Ivan", 30)
+//val tuple: Tuple3[Int, String, Int] = (1, "Ivan", 30)
 val (id, name, age) = tuple
 
 // todo: invert map (without swap)
-updatedIccMapping
+val reverted = updatedIccMapping
 //  .map(x => x._2 -> x._1)
-//  .map {
-//    case (icc, country) => country -> icc
-//  }
+//  .map(x => (x._2,  x._1))
+  .map {
+    case (icc@"UKR", country) => country -> icc
+    case x => x
+  }
 
 updatedIccMapping.toList
 
@@ -50,10 +68,10 @@ List(
 // Pitfall: mapValues (scala 2.11.X)
 
 val iccToLength = updatedIccMapping.mapValues(str => {
-  println("Heavy calculation")
+  println(s"Heavy calculation for $str")
   str.length
 })
-  .toMap
+//  .toMap
 
 iccToLength("UKR")
 iccToLength("UKR")

@@ -4,6 +4,7 @@ class Wrapper[T](val t: T)
 def wrap[T](t: T): Wrapper[T] = ???
 
 // no raw types
+// List list = new ArrayList<String>();
 // val value: Wrapper = new Wrapper("")
 val value: Wrapper[String] = new Wrapper("")
 
@@ -43,3 +44,4 @@ val y2: CoWrapper[B] = CoWrapper[B](new B())
 val z2: ContraWrapper[B] = ContraWrapper[B]()
 val z3: ContraWrapper[C] = ContraWrapper[B]()
 
+val l: List[A] = List[B](new B(), new B())

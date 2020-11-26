@@ -6,14 +6,16 @@
 
 // if:
 val a = 5
-val isEven = a % 2 == 0
+val isEven: Boolean = a % 2 == 0
 val isEvenHumanReadable = if (isEven) "Yes" else "No"
+//  isEven ? "Yes" : "No"
 // no trinary operator :(
 
 // for:
 for (i <- 1 until 10; j <- 1 to i) {
   println(s"$i $j")
 }
+
 for {
   i <- 1 until 10
   j <- 1 to i
@@ -21,8 +23,8 @@ for {
   println(s"$i $j")
 }
 
-val b = for {
-  i <- 1 until 10
+val b: Seq[(Int, Int)] = for {
+  i <- 1.until(10)
   j <- 1 to i
 } yield i -> j
 
